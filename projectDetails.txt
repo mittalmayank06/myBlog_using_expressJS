@@ -1,0 +1,35 @@
+myBlogProject:
+
+Routes in this project: 
+
+
+
+Aim of Project:
+
+Files in Project:
+
+
+Flow of Project:
+->npm initial
+->npm install express
+->npm i nodemon
+-> npm i express-edge   (for using template engines  .edge file)
+-> npm i mongoose  (to connect with mongoose DB)
+body-parser package   //to extract data from form & store into mongooseDB
+->npm install body-parser
+//fileupload package to uplaod file/image in mongooseDB
+->npm install --save express-fileupload
+
+->npm install --save bcrypt
+//to hash the password stored in DB
+
+---->LOGIN users:
+->Express SESSIONS
+->npm i --save express-session
+
+->npm i --save connect-mongo   //package to decide time of user-login
+
+
+
+Step1: extract template of a blog from 'start-bootstrap' web
+step2: create 'server.js' file
