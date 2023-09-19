@@ -5,8 +5,12 @@ module.exports = (req,res) =>{
     .then( ()=>{
         res.redirect('/');
     })
-    .catch( (err)=> {
-        console.log(Object.keys(error.errors).map(key =>error.errors[key].message  ));
+    .catch( (error)=> {
+        const registrationErrors = Object.keys(error.errors).map(key =>error.errors[key].message  );
+        // req.session.registrationErrors = registrationErrors;
+        req.flash('registrationErrors', registrationErrors)
+        req.flash('data', req.body)
+
         return res.redirect('/auth/register')
     });
 };

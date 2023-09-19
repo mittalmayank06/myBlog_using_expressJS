@@ -33,3 +33,22 @@ body-parser package   //to extract data from form & store into mongooseDB
 
 Step1: extract template of a blog from 'start-bootstrap' web
 step2: create 'server.js' file
+
+
+-> connect-flash package   (to remove info. of prev. session  called flushing)
+    -->flashing of error msg in a session..
+->npm i --save connect-flash
+
+
+***********************
+(node:3876) UnhandledPromiseRejectionWarning: Error: querySrv ECONNREFUSED _mongodb._tcp.nodeexpressproject1.wrswebo.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (internal/dns/promises.js:169:17)
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3876) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:3876) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:3876) UnhandledPromiseRejectionWarning: Error: querySrv ECONNREFUSED _mongodb._tcp.nodeexpressproject1.wrswebo.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (internal/dns/promises.js:169:17)
+(node:3876) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+
+--->This error shows becoz of  No-internet conn.( Need to open Mongoose web service)
+    while this web application is running..

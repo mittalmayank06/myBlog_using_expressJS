@@ -21,6 +21,15 @@
     <div class = "container">
         <div class="row"> 
             <div class="col-md-8 offset-md-2">
+
+
+            @if(errors.length > 0)
+                <ul class="list-group">
+                    @each(error in errors)
+                    <li class="list-group-item text-danger">{{error}}</li>
+                    @endeach
+                </ul>
+            @endif
                 <form action="/users/register"  method="POST" encType="multipart/form-data">
 
                     
@@ -28,7 +37,7 @@
                       <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Username</label>
-                            <input type="text" name="username" class="form-control" >
+                            <input type="text" name="username" value="{{data.usernmae || ''}}  placeholder="Username" class="form-control" >
                         </div>
                     </div>
 
@@ -36,7 +45,7 @@
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Email-ID</label>
-                            <input type="email" name="email" class="form-control">
+                            <input type="email" name="email" value = {{data.email || ''}} placeholder="Email-Id" class="form-control">
                         </div>
                     </div>
 

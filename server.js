@@ -7,6 +7,8 @@ const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload');  //package to store images on mongoDB
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
+const connectFlash = require('connect-flash')
+
 
 const createPostController = require('./controllers/createPost');
 const homePageController = require('./controllers/homePage');
@@ -44,6 +46,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(fileUpload());
 app.use(express.json())
+app.use(connectFlash());
 
 
 
