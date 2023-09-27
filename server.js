@@ -1,5 +1,5 @@
 const express = require('express');
-
+const dotenv = require('dotenv').config();
 const expressEdge = require('express-edge');
 const edge1  = require('edge.js')
 const mongoose = require('mongoose');
@@ -24,7 +24,7 @@ const loginUserController = require('./controllers/loginUser')
 const logoutController = require('./controllers/logout')
 
 const app = new express();
-mongoose.connect('mongodb+srv://mittalmayank036:hf3nPuKOhd2KtXw8@nodeexpressproject1.wrswebo.mongodb.net/myBlogProject?retryWrites=true&w=majority')
+mongoose.connect(process.env.mongo_uri)
 
 // const mongoStore = connectMongo(expressSession);
 app.use(expressSession ({
@@ -34,7 +34,7 @@ app.use(expressSession ({
         expires: 60000
     },
     store: MongoStore.create({
-        mongoUrl : 'mongodb+srv://mittalmayank036:hf3nPuKOhd2KtXw8@nodeexpressproject1.wrswebo.mongodb.net/myBlogProject?retryWrites=true&w=majority'
+        mongoUrl : process.env.mongo_uri
     }),
     
 }))
