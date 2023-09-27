@@ -39,6 +39,10 @@ step2: create 'server.js' file
     -->flashing of error msg in a session..
 ->npm i --save connect-flash
 
+-> npm i --save edge.js
+(package need to install  to make if user logged-in, show on webpasges on right -corner up)
+
+
 
 ***********************
 (node:3876) UnhandledPromiseRejectionWarning: Error: querySrv ECONNREFUSED _mongodb._tcp.nodeexpressproject1.wrswebo.mongodb.net

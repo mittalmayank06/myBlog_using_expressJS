@@ -1,6 +1,7 @@
 const express = require('express');
 
 const expressEdge = require('express-edge');
+const edge1  = require('edge.js')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 // const Post = require('./database/models/Post'); to store form-data into mongooseDB now,used in controllers only...
@@ -20,7 +21,7 @@ const createUserController = require('./controllers/createUser')
 const storeUserController = require('./controllers/storeUser')
 const loginController = require('./controllers/login')
 const loginUserController = require('./controllers/loginUser')
-
+const logoutController = require('./controllers/logout')
 
 const app = new express();
 mongoose.connect('mongodb+srv://mittalmayank036:hf3nPuKOhd2KtXw8@nodeexpressproject1.wrswebo.mongodb.net/myBlogProject?retryWrites=true&w=majority')
@@ -42,6 +43,15 @@ app.use(expressSession ({
 app.use(express.static('public'))
 app.use(expressEdge);
 app.set('views',`${__dirname}/views`);
+//global middleware
+app.use('*', (req,res,next) => {
+    app.locals.auth = req.session.userId;
+    //edge.global('auth', req.session.userId) //not working here..
+
+    next();
+});
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(fileUpload());
@@ -52,6 +62,7 @@ app.use(connectFlash());
 
 const storePost = require('./middleware/storePost');
 const auth = require('./middleware/auth');
+const redirectIfAuthenticated = require('./middleware/redirectIfAuthenticated')
 
 
 app.use('/posts/store',storePost)
@@ -68,11 +79,14 @@ app.get('/post/:id',getPostController );
 app.get('/contact',contactPageController);
 app.get('/about', aboutPageController);
 
-app.get('/auth/register', createUserController);
-app.post('/users/register',storeUserController);
-app.get('/auth/login', loginController)
-app.post('/users/login', loginUserController);
+app.get('/auth/register',redirectIfAuthenticated, createUserController);
+app.post('/users/register',redirectIfAuthenticated, storeUserController);
+app.get('/auth/login', redirectIfAuthenticated, loginController)
+app.post('/users/login', redirectIfAuthenticated, loginUserController);
 
+app.get('/auth/logout',auth, logoutController);
+
+app.use( (req,res) => res.render('not-found'));
 
 const PORT=3000;
 app.listen(PORT,()=>{

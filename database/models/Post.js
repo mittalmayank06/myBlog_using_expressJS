@@ -8,9 +8,10 @@ const PostSchema = new mongoose.Schema({
     title: String,
     description: String,
     content: String,
-    username: {
-        type:String,
-        required: true,
+    author : {
+        type: mongoose.Schema.Types.ObjectId,  //to save post related to which userId
+        ref: 'User',
+        required: true
     },
     image: String,
     createdAt: {
