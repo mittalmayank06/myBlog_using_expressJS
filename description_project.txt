@@ -1,0 +1,61 @@
+AIM:  
+-> POC for expressJS (Node)
+-> CRUD operations using express
+->REST APIs
+***********************
+Express- topics covered:
+
+->Rest APIs
+->[packages used or installed]
+**********************
+Tech. used:
+->MongoDB (Atlas)
+->Mongoose
+->Express
+-> Implementation of REST APIs
+-> Usage of Express-edge (for dynamic webpages)
+
+Requirements: 
+->Code editor (VS code)
+-> Chrome (latest version)
+-> Postman (for testing of APIs)
+
+Description:
+-> BlogProject is an website implementation in which a user can post any 
+POST ( title, description, content & image) on website which will be accessible to all users online. The post will stored on the mongoDB database.
+*********************************************
+->A user can register himself on the website then, this info.(data) will be stored in mongoDB database with the help of Mongoose & ExpressJS.
+->When login, the credentials will be compared with the user's data
+for security issues, password will be stored in DB using bcrypt(hashed-password).
+-> Mongoose Schema -- User
+*****************************************************
+-> A user can show a post on the website by storing the post in database.
+->Post includes  : title, description, content & image..
+
+->Mongoose Schema -- Post
+******************************************************
+-> A user when login, express-session implemented.. 
+
+->Mongoose Schema  -- Session
+*****************************************************
+VIDEO-RECORDING:
+Hi everyone, this is my basic myBlogProject in which I implement blog-website on which a user can register/login & create posts which will be stored in mongoDB Atlas (online service) using expressJS & node.
+->Webpages are implemented using edge files (so that the content shown on webpage extracted from DB). includes: homePage,login/registerPage, aboutPage, contactPage...
+->All login/register authentication is done properly with help of JWT-tokens.
+->When user creates any post, this post will stored in DB & shown on main webpage using express-edge concept.
+->It includes implementation of various major concepts of expressJS:
+	->[packages used/installed]..
+*******************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
